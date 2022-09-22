@@ -1,6 +1,6 @@
 <template>
-  <div class="flex w-full">
-    <div class="flex-1 mr-10 border border-gray-600 p-7">
+  <div class="flex flex-col w-full md:flex-row">
+    <div class="flex-1 my-10 mt-16 md:mr-10 md:my-0 mx-2 md:mx-0 border border-gray-600 p-7">
       <form @submit.prevent="onSubmit">
         <div class="mb-6 w-1/2">
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -169,7 +169,7 @@
     </div>
 
     <div
-      class="flex-1 text-sm font-medium text-gray-900 dark:text-gray-300 border border-gray-600 p-7"
+      class="flex-1 my-10 md:my-0 mx-2 md:mx-0 text-sm font-medium text-gray-900 dark:text-gray-300 border border-gray-600 p-7"
     >
       <dl class="mb-16">
         <div class="flex mb-3">
@@ -210,7 +210,7 @@
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
-import { CreditCard, Customer } from '../domain/Customer';
+import { Customer } from '../domain/Customer';
 import useCartStore from '../store/cart';
 
 const router = useRouter();
