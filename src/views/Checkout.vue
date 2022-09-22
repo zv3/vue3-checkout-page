@@ -97,14 +97,14 @@
 
         <div class="mb-6">
           <label
-            for="creditCard.number"
+            for="creditCard"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >Credit Card</label
           >
           <input
             type="text"
             v-model="customer.creditCard.number"
-            id="postCode"
+            id="creditCard"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             required
           />
@@ -128,7 +128,7 @@
 
           <div class="flex-1">
             <label
-              for="country"
+              for="cvv"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >CVV</label
             >
@@ -144,14 +144,14 @@
 
         <div class="mb-16">
           <label
-            for="country"
+            for="couponCode"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >Coupon</label
           >
           <input
             type="text"
             :value="couponCode"
-            id="country"
+            id="couponCode"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             @input="onChangeCouponCode"
           />
