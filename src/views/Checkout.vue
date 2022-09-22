@@ -2,7 +2,7 @@
   <div class="flex w-full">
     <div class="flex-1 mr-10 border border-gray-600 p-7">
       <form @submit.prevent="onSubmit">
-        <div class="mb-6">
+        <div class="mb-6 w-1/2">
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >Name</label
           >
@@ -142,7 +142,7 @@
           </div>
         </div>
 
-        <div class="mb-16">
+        <div class="mb-16 w-1/2">
           <label
             for="couponCode"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
