@@ -236,7 +236,9 @@ const cartStore = useCartStore();
 const { cartItems, netTotal, total, discount } = storeToRefs(cartStore);
 
 const onChangeCouponCode = (event: Event) => {
-  couponCode.value = event.target.value || '';
+  const target = event.target as HTMLInputElement;
+
+  couponCode.value = target.value;
 
   if (couponCode.value === import.meta.env.VITE_DISCOUNT_CODE) {
     cartStore.setDiscountPercent(20);
