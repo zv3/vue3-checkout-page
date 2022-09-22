@@ -5,5 +5,16 @@
 </template>
 
 <script setup lang="ts">
-import Cart from './views/Cart.vue';
+import ApiClient from "./api/client";
+import useCartStore from "./store/cart";
+
+const cartStore = useCartStore();
+
+const loadProducts = async () => {
+  const data = await ApiClient.fetchProducts();
+
+  data.products.forEach((product) => cartStore.updateQuantity(product, 1));
+}
+
+loadProducts();
 </script>

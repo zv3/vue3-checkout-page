@@ -12,9 +12,9 @@
       </thead>
       <tbody>
         <CartProductRow
-          v-for="product in products"
+          v-for="({ product, quantity }) in cartItems"
           :product="product"
-          :quantity="getProductQuantity(product)"
+          :quantity="quantity"
           @quantity="onQuantityUpdate(product, $event)"
         />
       </tbody>
@@ -36,29 +36,16 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
-import { onMounted, ref } from 'vue';
 import useCartStore from '../store/cart';
 import Product from '../domain/Product';
 import CartProductRow from '../components/CartProductRow/CartProductRow.vue';
-import ApiClient from '../api/client';
 
-const products = ref<Product[]>([]);
 const cartStore = useCartStore();
-const { cart, total } = storeToRefs(cartStore);
+const { cartItems, total } = storeToRefs(cartStore);
 
 const onQuantityUpdate = (product: Product, quantity: number) => {
   cartStore.updateQuantity(product, quantity);
 };
-
-onMounted(async () => {
-  const data = await ApiClient.fetchProducts();
-
-  products.value = data.products;
-
-  products.value.forEach((product) => cartStore.updateQuantity(product, 1));
-});
-
-const getProductQuantity = (product: Product) => cart.value[product.id]?.quantity;
 </script>
 
 <style scoped></style>
